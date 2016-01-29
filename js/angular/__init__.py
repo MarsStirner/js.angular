@@ -2,31 +2,60 @@ from fanstatic import Library, Resource
 
 library = Library('angularjs', 'resources')
 
-angular                       = Resource(library, 'angular.js',
-                                         minified='angular.min.js')
-angular_bootstrap             = Resource(library, 'angular-bootstrap.js',
-                                         minified='angular-bootstrap.min.js',
-                                         depends=[angular])
-angular_bootstrap_prettify    = Resource(library, 'angular-bootstrap-prettify.js',
-                                         minified='angular-bootstrap-prettify.min.js',
-                                         depends=[angular])
-angular_cookies               = Resource(library, 'angular-cookies.js',
-                                         minified='angular-cookies.min.js',
-                                         depends=[angular])
-angular_loader                = Resource(library, 'angular-loader.js',
-                                         minified='angular-loader.min.js')
-angular_mobile                = Resource(library, 'angular-mobile.js',
-                                         minified='angular-mobile.min.js',
-                                         depends=[angular])
-angular_mocks                 = Resource(library, 'angular-mocks.js',
-                                         depends=[angular])
-angular_resource              = Resource(library, 'angular-resource.js',
-                                         minified='angular-resource.min.js',
-                                         depends=[angular])
-angular_sanitize              = Resource(library, 'angular-sanitize.js',
-                                         minified='angular-sanitize.min.js',
-                                         depends=[angular])
-angular_scenario              = Resource(library, 'angular-scenario.js')
+angular = Resource(library, 'angular.js', minified='angular.min.js')
+angular_animate = Resource(
+    library, 'angular-animate.js',
+    minified='angular-animate.min.js',
+    depends=[angular]
+)
+angular_aria = Resource(
+    library, 'angular-aria.js',
+    minified='angular-aria.min.js',
+    depends=[angular]
+)
+angular_cookies = Resource(
+    library, 'angular-cookies.js',
+    minified='angular-cookies.min.js',
+    depends=[angular]
+)
+angular_csp = Resource(
+    library, 'angular-csp.css',
+    depends=[angular]
+)
+angular_loader = Resource(
+    library, 'angular-loader.js',
+    minified='angular-loader.min.js'
+)
+angular_message_format = Resource(
+    library, 'angular-message-format.js',
+    minified='angular-message-format.min.js',
+    depends=[angular]
+)
+angular_messages = Resource(
+    library, 'angular-messages.js',
+    minified='angular-messages.min.js',
+    depends=[angular]
+)
+angular_mocks = Resource(
+    library, 'angular-mocks.js',
+    depends=[angular])
+angular_resource = Resource(
+    library, 'angular-resource.js',
+    minified='angular-resource.min.js',
+    depends=[angular])
+angular_route = Resource(
+    library, 'angular-route.js',
+    minified='angular-route.min.js',
+    depends=[angular])
+angular_sanitize = Resource(
+    library, 'angular-sanitize.js',
+    minified='angular-sanitize.min.js',
+    depends=[angular])
+angular_scenario = Resource(library, 'angular-scenario.js')
+angular_touch = Resource(
+    library, 'angular-touch.js',
+    minified='angular-touch.min.js',
+    depends=[angular])
 
 _langs = [
     'af',
@@ -319,4 +348,7 @@ _langs = [
 ]
 
 for lang in _langs:
-  locals()["angular_locale_{0}".format(lang).replace("-", "_")] = Resource(library, "i18n/angular-locale_{0}.js".format(lang))
+    locals()["angular_locale_{0}".format(lang).replace("-", "_")] = Resource(
+        library,
+        "i18n/angular-locale_{0}.js".format(lang)
+    )
